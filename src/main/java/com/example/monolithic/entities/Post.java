@@ -1,10 +1,12 @@
 package com.example.monolithic.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 //import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Post {
@@ -12,6 +14,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column
     @Getter
     @Setter
@@ -19,7 +22,8 @@ public class Post {
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     private Person person;
 
     public Post(){

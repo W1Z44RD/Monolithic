@@ -10,7 +10,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
-@JsonFilter("BeanToFilter")
+//@JsonFilter("BeanToFilter")
 @Entity
 public class Person {
     @Id
